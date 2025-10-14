@@ -2,57 +2,59 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 200f;
-   
+    // Use a reasonable world speed (units/sec) when using velocity.
+    public float speed = 100f;
 
-    public float moveHorizontal;
-    public float moveVertical;
+    public float moveY;
+    public float moveX;
 
     private Rigidbody2D rb;
-    
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Access player's Rigidbody.
-        moveDirection();
+        randomDirection();
     }
 
-    // Update is called once per frame
-    void Update()
+    void randomDirection()
     {
-        Vector2 vector2 = transform.right * moveVertical;
-        Vector2 direction = transform.up * moveHorizontal;
-        print(direction);
-        Vector2 movement = (direction + vector2) * speed * Time.deltaTime;
+        // Use the float overload so values can be between -1 and 1.
+        moveX = Random.Range(-1f, 1f);
+        moveY = Random.Range(-1f, 1f);
 
-        rb.MovePosition(rb.position + movement);
-        print(rb.position);
+        // Avoid a zero vector and normalize so speed is stable.
+        Vector2 dir = new Vector2(moveX, moveY);
+        if (dir == Vector2.zero)
+            dir = Vector2.up;
+        dir.Normalize();
 
+        moveX = dir.x;
+        moveY = dir.y;
     }
 
-    void moveDirection()
+    private void FixedUpdate()
     {
-        moveVertical = Random.Range(-1f, 1f);
-        if (moveVertical > 0)
-        {
-            moveVertical = 1f;
-        }
-        else if (moveVertical < 0)
-        {
-            moveVertical = -1f;
-        }
+        // Set velocity directly for deterministic movement and reliable collision.
+        Vector2 velocity = new Vector2(moveX, moveY).normalized * speed;
+        rb.linearVelocity = velocity;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
         
-        moveHorizontal = Random.Range(-1f, 1f);
-        if (moveHorizontal > 0)
-        {
-            moveHorizontal = 1f;
-        }
-        else if (moveHorizontal < 0)
-        {
-            moveHorizontal = -1f;
-        }
-       
+            // Reflect movement across collision normal for realistic bounce.
+            Vector2 move = new Vector2(moveX, moveY);
+            if (collision.contacts != null && collision.contacts.Length > 0)
+            {
+                move = Vector2.Reflect(move, collision.contacts[0].normal).normalized;
+            }
+            else
+            {
+                move = -move.normalized; // fallback
+            }
+
+            moveX = move.x;
+            moveY = move.y;
         
     }
 }
