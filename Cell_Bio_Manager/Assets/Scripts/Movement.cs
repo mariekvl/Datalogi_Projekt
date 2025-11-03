@@ -3,7 +3,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     // Use a reasonable world speed (units/sec) when using velocity.
-    public float speed = 100f;
+    public float speed = 5f;
 
     public float moveY;
     public float moveX;
@@ -42,19 +42,22 @@ public class Movement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         
-            // Reflect movement across collision normal for realistic bounce.
-            Vector2 move = new Vector2(moveX, moveY);
-            if (collision.contacts != null && collision.contacts.Length > 0)
+        // Reflect movement across collision normal for realistic bounce.
+        Vector2 move = new Vector2(moveX, moveY);
+        if (collision.contacts != null && collision.contacts.Length > 0)
+        {
+            if (!collision.gameObject.tag.Equals("Wall"))
             {
                 move = Vector2.Reflect(move, collision.contacts[0].normal).normalized;
             }
-            else
-            {
-                move = -move.normalized; // fallback
-            }
+        }
+        else
+        {
+            move = -move.normalized; // fallback
+        }
 
-            moveX = move.x;
-            moveY = move.y;
+        moveX = move.x;
+        moveY = move.y;
         
     }
 }

@@ -1,34 +1,31 @@
 fileFormatVersion: 2
-guid: 20a634b67daf7424db8c46b9204584e6
+guid: adfa4f6cc94cb984ba559904877c12eb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7926013092761666671
-    second: golgi2_0
+      213: -1344392001006076447
+    second: golgi_0
   - first:
-      213: 9174802665922053178
-    second: golgi2_1
+      213: -3771582146161672183
+    second: golgi_1
   - first:
-      213: 8675767221348953968
-    second: golgi2_2
+      213: -6336083866178803586
+    second: golgi_2
   - first:
-      213: 5443049493669432329
-    second: golgi2_3
+      213: -3275023392796056358
+    second: golgi_3
   - first:
-      213: 3202098479277737574
-    second: golgi2_4
+      213: 3000183429758987680
+    second: golgi_4
   - first:
-      213: 7948250961934517991
-    second: golgi2_5
+      213: 1579584696434420945
+    second: golgi_5
   - first:
-      213: -4475796084474720651
-    second: golgi2_6
+      213: -3369408198954214788
+    second: golgi_6
   - first:
-      213: 570784215706444463
-    second: golgi2_7
-  - first:
-      213: 312049730123003862
-    second: golgi2_8
+      213: 7026183429145272927
+    second: golgi_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -70,7 +67,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -124,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: golgi2_0
+      name: golgi_0
       rect:
         serializedVersion: 2
-        x: 205
-        y: 198
-        width: 551
-        height: 467
+        x: 77
+        y: 387
+        width: 424
+        height: 579
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,18 +136,106 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19b78d00615210290800000000000000
-      internalID: -7926013092761666671
+      spriteID: 1edf7251992c75de0800000000000000
+      internalID: -1344392001006076447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: golgi2_1
+      name: golgi_1
       rect:
         serializedVersion: 2
-        x: 385
-        y: 615
+        x: 82
+        y: 237
+        width: 514
+        height: 718
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90004d05506a8abc0800000000000000
+      internalID: -3771582146161672183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golgi_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 921
+        width: 653
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7824513b45b118a0800000000000000
+      internalID: -6336083866178803586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golgi_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 596
+        width: 253
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad4eb497397cc82d0800000000000000
+      internalID: -3275023392796056358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golgi_4
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 239
+        width: 467
+        height: 552
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ad2cc70feac2a920800000000000000
+      internalID: 3000183429758987680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golgi_5
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 549
         width: 62
         height: 62
       alignment: 0
@@ -161,41 +246,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a34479a1a62735f70800000000000000
-      internalID: 9174802665922053178
+      spriteID: 1dced9399efcbe510800000000000000
+      internalID: 1579584696434420945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: golgi2_2
+      name: golgi_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 609
-        height: 446
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07f6b765254866870800000000000000
-      internalID: 8675767221348953968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: golgi2_3
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 260
-        width: 66
+        x: 62
+        y: 498
+        width: 65
         height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -205,63 +268,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90c490d0da8998b40800000000000000
-      internalID: 5443049493669432329
+      spriteID: c7a9b0e48157d31d0800000000000000
+      internalID: -3369408198954214788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: golgi2_4
+      name: golgi_7
       rect:
         serializedVersion: 2
-        x: 41
-        y: 27
-        width: 718
-        height: 514
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6660b29f993207c20800000000000000
-      internalID: 3202098479277737574
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: golgi2_5
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 9
-        width: 230
-        height: 253
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7e683c3632cdd4e60800000000000000
-      internalID: 7948250961934517991
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: golgi2_6
-      rect:
-        serializedVersion: 2
-        x: 775
-        y: 250
-        width: 76
+        x: 305
+        y: 144
+        width: 77
         height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -271,52 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57eccc9cc27c2e1c0800000000000000
-      internalID: -4475796084474720651
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: golgi2_7
-      rect:
-        serializedVersion: 2
-        x: 433
-        y: 7
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fa225945835dbe700800000000000000
-      internalID: 570784215706444463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: golgi2_8
-      rect:
-        serializedVersion: 2
-        x: 711
-        y: 0
-        width: 158
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6d7fc34839f945400800000000000000
-      internalID: 312049730123003862
+      spriteID: f52a0fc3a94028160800000000000000
+      internalID: 7026183429145272927
       vertices: []
       indices: 
       edges: []
@@ -325,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -335,15 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      golgi2_0: -7926013092761666671
-      golgi2_1: 9174802665922053178
-      golgi2_2: 8675767221348953968
-      golgi2_3: 5443049493669432329
-      golgi2_4: 3202098479277737574
-      golgi2_5: 7948250961934517991
-      golgi2_6: -4475796084474720651
-      golgi2_7: 570784215706444463
-      golgi2_8: 312049730123003862
+      golgi_0: -1344392001006076447
+      golgi_1: -3771582146161672183
+      golgi_2: -6336083866178803586
+      golgi_3: -3275023392796056358
+      golgi_4: 3000183429758987680
+      golgi_5: 1579584696434420945
+      golgi_6: -3369408198954214788
+      golgi_7: 7026183429145272927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

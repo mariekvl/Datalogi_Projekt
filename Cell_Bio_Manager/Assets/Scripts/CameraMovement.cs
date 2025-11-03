@@ -18,13 +18,10 @@ public class CameraMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 moveValue = moveAction.ReadValue<Vector2>();
-        if (!moveValue.Equals(Vector3.zero))
-        {
-            print(moveValue);
-        }
-        
+                
        
         transform.position += moveValue * speed;
+       
     }
 }
 
