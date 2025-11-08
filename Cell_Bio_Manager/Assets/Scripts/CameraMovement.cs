@@ -1,27 +1,15 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
-    InputAction moveAction;
-
+    public Transform PlayerEnzyme;
     public float speed = 5f;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // late update is used because it runs after all update functions (in this case after player movement)
+    void LateUpdate()
     {
-        moveAction = InputSystem.actions.FindAction("Move");
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        Vector3 moveValue = moveAction.ReadValue<Vector2>();
-                
-       
-        transform.position += moveValue * speed;
-       
+        if (PlayerEnzyme == null) return;
+        transform.position = new Vector3(PlayerEnzyme.position.x, PlayerEnzyme.position.y, transform.position.z);
     }
 }
 
