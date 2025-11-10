@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +9,24 @@ public class SpawnPoints : MonoBehaviour
 
     public List<GameObject> molecules = new List<GameObject>();
 
+    //maybe move this later?
+    public Array moleculeNames = new string[]
+    {
+        "Glucose",
+        "Glucose 6-phosphate",
+        "Fructose 6-phosphate",
+        "Fructose 1,6-biphosphate",
+        "Glyceraldehyde 3-phosphate",
+        "1,3-bisphosphoglycerate",
+        "3-phosphoglycerate",
+        "2-phosphoglycerate",
+        "Phosphoenolpyruvate"
+    };
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnMolecules("Molecule2", 10);
+        SpawnMolecules(getMoleculeName(0), 10);
     }
 
     // Update is called once per frame
@@ -20,9 +35,14 @@ public class SpawnPoints : MonoBehaviour
         
     }
 
+    public String getMoleculeName(int index)
+    {
+        return (String)moleculeNames.GetValue(index);
+    }
+
     public Vector3 GetRandomSpawnPoint()
     {
-        int randomIndex = Random.Range(0, spawnPoints.Count);
+        int randomIndex = UnityEngine.Random.Range(0, spawnPoints.Count);
         return spawnPoints[randomIndex].transform.position;
     }
 

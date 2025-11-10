@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &858467968291242531
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4503246025083621195, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.26872
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503246025083621195, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -33.16019
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503246025083621195, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503246025083621195, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503246025083621195, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503246025083621195, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503246025083621195, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503246025083621195, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503246025083621195, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503246025083621195, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894328398037833607, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_text
+      value: Fructose-6-phosphate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265901888728797628, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_Name
+      value: Fructose 6-phosphate
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002047010489688287, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002047010489688287, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002047010489688287, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4db0bc49e2cead44e98ef8795fcf01ea, type: 3}

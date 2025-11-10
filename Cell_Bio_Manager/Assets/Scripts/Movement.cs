@@ -46,10 +46,7 @@ public class Movement : MonoBehaviour
         Vector2 move = new Vector2(moveX, moveY);
         if (collision.contacts != null && collision.contacts.Length > 0)
         {
-            if (!collision.gameObject.tag.Equals("Wall"))
-            {
-                move = Vector2.Reflect(move, collision.contacts[0].normal).normalized;
-            }
+            move = Vector2.Reflect(move, collision.contacts[0].normal).normalized;
         }
         else
         {
