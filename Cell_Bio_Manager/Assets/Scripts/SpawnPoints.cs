@@ -9,6 +9,8 @@ public class SpawnPoints : MonoBehaviour
 
     public List<GameObject> molecules = new List<GameObject>();
 
+    public int currentLevel = 0;
+
     //maybe move this later?
     public Array moleculeNames = new string[]
     {
@@ -23,17 +25,32 @@ public class SpawnPoints : MonoBehaviour
         "Phosphoenolpyruvate"
     };
 
+    public int moleculeCount = 0;
+
+    public float waitTimer = 5.0f;
+    private float currentTime = 0.0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnMolecules(getMoleculeName(0), 10);
+        SpawnMolecules(getMoleculeName(currentLevel), 10);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        currentTime += Time.deltaTime;
+        if (currentTime >= waitTimer && moleculeCount < 20)
+        {
+            SpawnMolecules(getMoleculeName(currentLevel), 5);
+            currentTime = 0.0f;
+        }
+
+
+
     }
+
+
 
     public String getMoleculeName(int index)
     {
@@ -66,6 +83,15 @@ public class SpawnPoints : MonoBehaviour
         {
             Vector3 spawnPosition = GetRandomSpawnPoint();
             Instantiate(moleculePrefab, spawnPosition, Quaternion.identity);
+            moleculeCount++;
+            print(moleculeCount);
         }
+    }
+
+    // Public API to safely change molecule count (prevents negative values).
+    public void ModifyMoleculeCount(int delta)
+    {
+        moleculeCount = Mathf.Max(0, moleculeCount + delta);
+        print(moleculeCount);
     }
 }
