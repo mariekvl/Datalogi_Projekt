@@ -36,6 +36,7 @@ public class Movement : MonoBehaviour
     {
         // Set velocity directly for deterministic movement and reliable collision.
         Vector2 velocity = new Vector2(moveX, moveY).normalized * speed;
+
         rb.linearVelocity = velocity;
     }
 
