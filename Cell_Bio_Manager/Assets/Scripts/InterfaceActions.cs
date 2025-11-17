@@ -1,10 +1,11 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class InterfaceActions : MonoBehaviour
 {
-
+    public Scene shopScene;
     public UIDocument uIDocument;
     private Button shopButton;
 
@@ -12,6 +13,7 @@ public class InterfaceActions : MonoBehaviour
     void Start()
     {
         shopButton = uIDocument.rootVisualElement.Q<Button>("ShopButton");
+        shopButton.clicked += openShop;
     }
 
     // Update is called once per frame
@@ -22,6 +24,11 @@ public class InterfaceActions : MonoBehaviour
 
     void openShop()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        shopScene = SceneManager.GetSceneByName("ShopScene");
+        
+
+
         SceneManager.LoadScene("ShopScene");
     }
 }

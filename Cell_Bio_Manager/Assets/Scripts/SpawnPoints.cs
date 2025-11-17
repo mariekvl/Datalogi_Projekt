@@ -88,6 +88,12 @@ public class SpawnPoints : MonoBehaviour
         }
     }
 
+    public void SpawnNextMolecule(Vector3 spawnPosition, int rotation, int playerLevel)
+    {
+        GameObject moleculePrefab = GetMolecule(getMoleculeName(playerLevel));
+        Instantiate(moleculePrefab, spawnPosition, Quaternion.Euler(0, 0, rotation));
+    }
+
     // Public API to safely change molecule count (prevents negative values).
     public void ModifyMoleculeCount(int delta)
     {
