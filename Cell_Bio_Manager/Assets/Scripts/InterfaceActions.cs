@@ -1,17 +1,17 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class InterfaceActions : MonoBehaviour
 {
 
-    [SerializeField]
-    private VisualTreeAsset _treeAsset = default;
+    public UIDocument uIDocument;
+    private Button shopButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        shopButton = uIDocument.rootVisualElement.Q<Button>("ShopButton");
     }
 
     // Update is called once per frame
@@ -22,6 +22,6 @@ public class InterfaceActions : MonoBehaviour
 
     void openShop()
     {
-        
+        SceneManager.LoadScene("ShopScene");
     }
 }
