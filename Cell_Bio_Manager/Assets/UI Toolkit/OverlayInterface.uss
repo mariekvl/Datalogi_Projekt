@@ -1,0 +1,16 @@
+:root {
+}
+
+.button {
+}
+
+.text {
+    -unity-font-style: bold;
+    font-size: 30px;
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: rgb(0, 0, 0);
+}
+
+.button:hover {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
