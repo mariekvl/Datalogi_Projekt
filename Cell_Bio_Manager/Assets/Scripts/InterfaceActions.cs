@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,9 +6,10 @@ using UnityEngine.UIElements;
 
 public class InterfaceActions : MonoBehaviour
 {
-    public Scene shopScene;
+    
     public UIDocument uIDocument;
     private Button shopButton;
+    private Scene savedScene;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,11 +26,13 @@ public class InterfaceActions : MonoBehaviour
 
     void openShop()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        shopScene = SceneManager.GetSceneByName("ShopScene");
-        
+        if (SceneManager.GetSceneByName("ShopScene").isLoaded)
+        {
+            Debug.Log("Shop scene is already loaded.");
+            return;
+        }
+        SceneManager.LoadScene("ShopScene",LoadSceneMode.Additive);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("ShopScene"));
 
-
-        SceneManager.LoadScene("ShopScene");
     }
 }

@@ -6,6 +6,6 @@
         <ui:Label text="Pyruvate:" class="text" style="left: 0; width: 15%; height: 50px; -unity-text-align: middle-center; border-left-width: 0;" />
         <ui:Label text="000" name="PyruvateValue" class="text" style="left: 0; width: 15%; height: 50px; -unity-text-align: middle-left; border-left-width: 0;" />
         <ui:VisualElement name="Spacer" style="flex-grow: 1; width: 10%; height: 50px; max-width: none;" />
-        <ui:Button text="Shop" name="ShopButton" class="button text" style="width: 10%; height: 50px; -unity-text-align: middle-center; padding-left: 12px;" />
+        <ui:Button text="Shop" name="ShopButton" class="button text" style="width: 10%; height: 50px; -unity-text-align: middle-center; padding-left: 12px; border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
     </ui:VisualElement>
 </ui:UXML>

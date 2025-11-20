@@ -13,7 +13,10 @@ public class ActiveRegion : MonoBehaviour
     private Label pyruvateScore;
 
     private int level = 0;
-    
+    private int maxLevel = 10;
+
+    private AudioSource audioSource;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +24,7 @@ public class ActiveRegion : MonoBehaviour
         
         atpScore = uIDocument.rootVisualElement.Q<Label>("ATPValue");
         pyruvateScore = uIDocument.rootVisualElement.Q<Label>("PyruvateValue");
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class ActiveRegion : MonoBehaviour
             string moleculeName = other.gameObject.name.Replace("(Clone)", "").Trim();
             if (moleculeName == spawnPointsRef.getMoleculeName(level))
             {
-                
+                audioSource.Play();
                 Destroy(other.gameObject);
                 spawnPointsRef.SpawnNextMolecule(other.transform.position, 0, level+1);
 

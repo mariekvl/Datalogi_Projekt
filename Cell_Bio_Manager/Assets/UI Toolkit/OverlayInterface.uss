@@ -2,6 +2,8 @@
 }
 
 .button {
+    background-image: url("project://database/Assets/Images/GUI/2NullPu.png?fileID=-2908929867247347173&guid=afab75af344dc544aa4e3644ce75dbea&type=3#2NullPu_0");
+    background-color: rgb(55, 55, 55);
 }
 
 .text {
@@ -9,8 +11,10 @@
     font-size: 30px;
     -unity-text-outline-width: 0;
     -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-font-definition: url("project://database/Assets/Fonts/BOMBARD_.otf?fileID=12800000&guid=bce177b858909ed458b2c78fcfff6512&type=3#BOMBARD_");
 }
 
 .button:hover {
     -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-image: none;
 }

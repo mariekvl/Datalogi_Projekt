@@ -4,23 +4,78 @@
 .header {
     -unity-text-align: upper-center;
     -unity-font-style: bold;
-    font-size: 50px;
-    border-top-width: 20px;
-    border-bottom-width: 30px;
+    font-size: 140px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    -unity-font-definition: url("project://database/Assets/Fonts/Spaceport_2006.otf?fileID=12800000&guid=90a1cef5ca9efe1479326d63ee91078f&type=3#Spaceport_2006");
+    color: rgb(106, 0, 186);
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    background-color: rgb(63, 109, 136);
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-right-width: 5px;
+    border-left-width: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left-color: rgb(56, 73, 97);
+    border-right-color: rgb(56, 73, 97);
+    border-top-color: rgb(56, 73, 97);
+    border-bottom-color: rgb(56, 73, 97);
 }
 
 .subheader {
     width: 50%;
-    font-size: 30px;
+    font-size: 50px;
     -unity-text-align: upper-center;
     -unity-font-style: bold;
+    -unity-font-definition: url("project://database/Assets/Fonts/Spaceport_2006.otf?fileID=12800000&guid=90a1cef5ca9efe1479326d63ee91078f&type=3#Spaceport_2006");
 }
 
 .text {
     -unity-font-style: bold;
-    -unity-text-align: upper-left;
+    -unity-text-align: middle-left;
     font-size: 25px;
+    -unity-font-definition: url("project://database/Assets/Fonts/Spaceport_2006.otf?fileID=12800000&guid=90a1cef5ca9efe1479326d63ee91078f&type=3#Spaceport_2006");
 }
 
 .button {
+    background-image: url("project://database/Assets/Images/GUI/1NullY.png?fileID=-2284687965151203239&guid=625dd36d6ca44cb47a1f648f90a08251&type=3#1NullY_0");
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.scrollWindow {
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    background-color: rgb(126, 178, 171);
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-left-color: rgb(5, 34, 107);
+    border-right-color: rgb(5, 34, 107);
+    border-top-color: rgb(5, 34, 107);
+    border-bottom-color: rgb(5, 34, 107);
 }
