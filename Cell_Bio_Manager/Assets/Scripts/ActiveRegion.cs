@@ -8,12 +8,15 @@ public class ActiveRegion : MonoBehaviour
     public SpawnPoints spawnPointsRef;
 
     public UIDocument uIDocument;
+    public PointManager pointManager;
 
     private Label atpScore;
     private Label pyruvateScore;
 
+    
+
     private int level = 0;
-    private int maxLevel = 10;
+   // private int maxLevel = 8;
 
     private AudioSource audioSource;
 
@@ -27,25 +30,21 @@ public class ActiveRegion : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
+   
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Molecule"))
         {
-            
             string moleculeName = other.gameObject.name.Replace("(Clone)", "").Trim();
-            if (moleculeName == spawnPointsRef.getMoleculeName(level))
+            if (moleculeName == level.ToString())
             {
                 audioSource.Play();
                 Destroy(other.gameObject);
                 spawnPointsRef.SpawnNextMolecule(other.transform.position, 0, level+1);
-
-                atpScore.text = (int.Parse(atpScore.text) + 10).ToString();
+                int newATP = pointManager.atpScore + 10;
+                atpScore.text = newATP.ToString();
 
             }
             

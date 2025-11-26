@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopScript
   uIDocument: {fileID: 1060356221}
+  pointManager: {fileID: 11400000, guid: 3e4736432b0bcc242af8681581d49628, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
