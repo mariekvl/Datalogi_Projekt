@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,6 +10,8 @@ public class ActiveRegion : MonoBehaviour
 
     public UIDocument uIDocument;
     public PointManager pointManager;
+
+    
 
     private Label atpScore;
     private Label pyruvateScore;
@@ -43,7 +46,8 @@ public class ActiveRegion : MonoBehaviour
                 audioSource.Play();
                 Destroy(other.gameObject);
                 spawnPointsRef.SpawnNextMolecule(other.transform.position, 0, level+1);
-                int newATP = pointManager.atpScore + 10;
+                int moleculeATP = spawnPointsRef.GetMoleculeATPValue(level);
+                int newATP = pointManager.atpScore + moleculeATP;
                 atpScore.text = newATP.ToString();
 
             }

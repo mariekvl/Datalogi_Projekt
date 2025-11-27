@@ -135,4 +135,17 @@ public class SpawnPoints : MonoBehaviour
         moleculeCount = Mathf.Max(0, moleculeCount + delta);
         print(moleculeCount);
     }
+
+    public int GetMoleculeATPValue(int level)
+    {
+        for (int i = 0; i < MoleculeData.Count; i++)
+        {
+            if (MoleculeData[i].Level == level)
+            {
+                return MoleculeData[i].ATPValue;
+            }
+        }
+        Debug.LogError("Invalid molecule level: " + level);
+        return 0;
+    }
 }

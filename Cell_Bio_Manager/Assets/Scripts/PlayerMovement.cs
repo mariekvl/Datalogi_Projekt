@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         
         // reads the value of the move action (input)
         Vector2 moveValue = moveAction.ReadValue<Vector2>();
-
+        
         if (moveValue != Vector2.zero)
         {
             lastInput = moveValue;

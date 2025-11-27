@@ -1,0 +1,45 @@
+:root {
+}
+
+.heading {
+    -unity-text-align: middle-center;
+    align-self: center;
+    margin-top: 100px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    -unity-font-definition: url("project://database/Assets/Fonts/Spaceport_2006.otf?fileID=12800000&guid=90a1cef5ca9efe1479326d63ee91078f&type=3#Spaceport_2006");
+    font-size: 150px;
+    -unity-font-style: bold;
+    color: rgb(198, 153, 255);
+    -unity-text-outline-width: 5px;
+    -unity-text-outline-color: rgb(86, 1, 191);
+}
+
+.button {
+    background-image: url("project://database/Assets/Images/GUI/2NullPu.png?fileID=2800000&guid=afab75af344dc544aa4e3644ce75dbea&type=3#2NullPu");
+    background-size: 100% 100%;
+    width: 30%;
+    height: 10%;
+    align-self: center;
+    align-content: center;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/Fonts/FROSTBITE-Wide%20Bold.ttf?fileID=12800000&guid=e9bcf0397c1546142bf9560e6aa9e5c5&type=3#FROSTBITE-Wide Bold");
+    font-size: 35px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-top: 60px;
+    margin-right: 60px;
+    margin-bottom: 60px;
+    margin-left: 60px;
+}
+
+.button:hover {
+    -unity-background-image-tint-color: rgb(255, 0, 0);
+}
+
+.button:active {
+    -unity-background-image-tint-color: rgb(0, 255, 0);
+}
