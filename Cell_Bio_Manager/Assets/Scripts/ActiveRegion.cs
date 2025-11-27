@@ -22,24 +22,25 @@ public class ActiveRegion : MonoBehaviour
 
     public bool MoleculeCaught = false;
 
-    // method for getting current molecule by level
-    public GameObject GetCurrentMolecule()
-    {
-        if (currentMolecule != null)
-            return currentMolecule;
 
-        if (spawnPointsRef != null)
-            return spawnPointsRef.GetMolecule(spawnPointsRef.getMoleculeName(level));
-
-        return null;
-    }
-
-
-
-    private int level = 0;
-   // private int maxLevel = 8;
+    // private int maxLevel = 8;
 
     private AudioSource audioSource;
+
+    // method for getting current molecule by level
+    //public GameObject GetCurrentMolecule()
+    //{
+    //    if (currentMolecule != null)
+    //        return currentMolecule;
+
+    //    if (spawnPointsRef != null)
+    //        return spawnPointsRef.GetMolecule(spawnPointsRef.getMoleculeName(level));
+
+    //    return null;
+    //}
+
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -70,12 +71,9 @@ public class ActiveRegion : MonoBehaviour
 
 
 
-                currentMolecule = spawnPointsRef.GetMolecule(spawnPointsRef.getMoleculeName(level + 1));
+                //currentMolecule = spawnPointsRef.GetMolecule(spawnPointsRef.getMoleculeName(level + 1));
 
-                atpScore.text = (int.Parse(atpScore.text) + 10).ToString();
-
-                int newATP = pointManager.atpScore + 10;
-
+                
                 atpScore.text = newATP.ToString();
 
 

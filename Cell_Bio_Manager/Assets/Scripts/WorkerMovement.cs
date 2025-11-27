@@ -43,7 +43,7 @@ public class WorkerMovement : MonoBehaviour
 
         // gets target from activeRegion
         if (activeRegion != null)
-            molecule = activeRegion.GetCurrentMolecule();
+            //molecule = activeRegion.GetCurrentMolecule();
 
 
         // logic to move towards molecule
@@ -147,12 +147,12 @@ public class WorkerMovement : MonoBehaviour
 
         if (currentState == WorkerState.Wander && activeRegion != null)
         {
-            GameObject targetMolecule = activeRegion.GetCurrentMolecule();
-            if (targetMolecule != null)
-            {
-                Debug.Log($"{name}: target found = '{targetMolecule.name}' (sceneValid={targetMolecule.scene.IsValid()}) -> switching to Seek");
-                currentState = WorkerState.Seek;
-            }
+            //GameObject targetMolecule = activeRegion.GetCurrentMolecule();
+            //if (targetMolecule != null)
+            //{
+            //    Debug.Log($"{name}: target found = '{targetMolecule.name}' (sceneValid={targetMolecule.scene.IsValid()}) -> switching to Seek");
+            //    currentState = WorkerState.Seek;
+            //}
         }
     }
 }
