@@ -1,29 +1,39 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/ShopInterface.uss?fileID=7433441132597879392&amp;guid=fb6850f1907362043ae89efc66160567&amp;type=3#ShopInterface" />
-    <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgb(239, 158, 249); flex-direction: column; flex-wrap: nowrap; align-content: flex-start; align-self: auto;">
-        <ui:Label text="Shop" class="header" />
+    <ui:VisualElement style="flex-grow: 1; flex-direction: column; flex-wrap: nowrap; align-content: flex-start; align-self: stretch; border-top-width: 10px; border-left-width: 10px; border-bottom-width: 10px; border-right-width: 10px; border-left-color: rgb(52, 118, 98); border-right-color: rgb(52, 118, 98); border-top-color: rgb(52, 118, 98); border-bottom-color: rgb(52, 118, 98); background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(126, 174, 143); transform-origin: center; width: auto; height: auto; max-height: none; bottom: auto; background-position-y: center; padding-top: 0; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
+        <ui:Label text="Shop" class="header" style="-unity-text-align: middle-center;" />
         <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: row; max-height: 10%;">
-            <ui:Label text="Cell Elements" class="subheader" />
-            <ui:Label text="Enzymes" class="subheader" />
+            <ui:Label text="Cell Elements" class="subheader" style="-unity-text-align: middle-center;" />
+            <ui:Label text="Enzymes" class="subheader" style="-unity-text-align: middle-center;" />
         </ui:VisualElement>
         <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: row;">
-            <ui:ScrollView style="width: 50%;" />
-            <ui:ScrollView style="width: 50%;">
+            <ui:ScrollView class="scrollWindow" style="width: 50%; max-width: 50%;" />
+            <ui:ScrollView class="scrollWindow" style="width: 50%; max-width: 50%;">
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Player Upgrade" name="NextUpgrade" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
                     <ui:Label text="100" name="UpgradePrice" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="UpgradeBuy" class="button" style="-unity-text-align: middle-center;" />
-                    <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 10%; width: 10px;" />
+                    <ui:Button text="Buy" name="BuyUpgrade" class="button text" style="-unity-text-align: middle-center; margin-top: 2px; margin-right: 4px; margin-bottom: 2px; margin-left: 4px; border-bottom-width: 0; border-top-width: 0; border-right-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Hexokinase" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
-                    <ui:Label text="150" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="HexokinseBuy" class="button" style="-unity-text-align: middle-center;" />
-                    <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 10%; width: 10px;" />
+                    <ui:Label text="150" name="HexokinasePrice" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyHexokinase" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
             </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement name="Container" style="flex-grow: 1; align-self: flex-start; flex-direction: row; max-width: 100%; max-height: 40px; justify-content: flex-start; align-items: stretch; align-content: flex-start; -unity-text-align: upper-left; flex-wrap: nowrap;">
+            <ui:Label text="Current ATP: " name="Label" class="text" style="width: auto; -unity-text-align: middle-center; margin-left: 60px;" />
+            <ui:VisualElement name="Spacer" style="flex-grow: 1; width: auto; min-width: 10%;" />
+            <ui:Label text="50" name="ATPValue" class="text" style="width: 50%; -unity-text-align: middle-left;" />
+            <ui:VisualElement name="Spacer" style="flex-grow: 1; width: auto; min-width: 35%;" />
+            <ui:Label text="Current Pyruvate:" name="Label" class="text" style="width: auto; -unity-text-align: middle-center;" />
+            <ui:VisualElement name="Spacer" style="flex-grow: 1; width: auto; min-width: 10%;" />
+            <ui:Label text="000" name="PyruvateValue" class="text" style="width: 50%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Container" style="flex-grow: 1; max-height: 150px; align-self: center; align-content: flex-start; right: auto; bottom: auto; left: auto; top: auto; -unity-text-align: upper-center;">
+            <ui:Button text="Close Shop" name="BackButton" class="text button" style="-unity-text-align: middle-center; max-width: none; width: 250px; bottom: auto; top: 50px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cfb036cc3f18e8b43970c54f5910c150
+guid: b1dce1012c46d0047a3745eac997ab1c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4039735873262527565
-    second: "cellev\xE6g_0"
+      213: 6040453874402761144
+    second: Cart-Hover@4x_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "cellev\xE6g_0"
+      name: Cart-Hover@4x_0
       rect:
         serializedVersion: 2
-        x: 79
-        y: 125
-        width: 648
-        height: 870
+        x: 0
+        y: 0
+        width: 352
+        height: 352
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3bbd8cf60a9ffe7c0800000000000000
-      internalID: -4039735873262527565
+      spriteID: 8b998e98bc004d350800000000000000
+      internalID: 6040453874402761144
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "cellev\xE6g_0": -4039735873262527565
+      Cart-Hover@4x_0: 6040453874402761144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    // Use a reasonable world speed (units/sec) when using velocity.
+  
     public float speed = 5f;
 
     public float moveY;
@@ -12,13 +12,13 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // Access player's Rigidbody.
+        rb = GetComponent<Rigidbody2D>(); 
         randomDirection();
     }
 
     void randomDirection()
     {
-        // Use the float overload so values can be between -1 and 1.
+        
         moveX = Random.Range(-1f, 1f);
         moveY = Random.Range(-1f, 1f);
 
@@ -43,6 +43,7 @@ public class Movement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         
+
         // Reflect movement across collision normal for realistic bounce.
         Vector2 move = new Vector2(moveX, moveY);
         if (collision.contacts != null && collision.contacts.Length > 0)

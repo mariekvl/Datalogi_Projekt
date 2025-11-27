@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         moveAction = InputSystem.actions.FindAction("Move");
+        print(moveAction);
 
         // checks if moveAction is null
         if (moveAction == null)
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (moveValue != Vector2.zero)
         {
             lastInput = moveValue;
+            print(moveValue);
         }
 
         // uses moveValue (input value) to compute delta
