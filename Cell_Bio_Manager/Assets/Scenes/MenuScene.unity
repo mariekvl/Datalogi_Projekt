@@ -188,8 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuScript
   uIDocument: {fileID: 1150072777}
-  mainScene:
-    m_Handle: 0
 --- !u!1 &1636204581
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +258,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636204581}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1636204584
 Camera:
   m_ObjectHideFlags: 0

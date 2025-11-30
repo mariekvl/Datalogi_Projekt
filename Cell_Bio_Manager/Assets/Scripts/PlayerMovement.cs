@@ -10,10 +10,25 @@ public class PlayerMovement : MonoBehaviour
     InputAction moveAction;
     Rigidbody2D rb;
     Vector2 lastInput;
+    PlayerInput input;
+    public InputActionReference moveActionReference;
+
+    private void Awake()
+    {
+        input = GetComponent<PlayerInput>();
+        input.actions.FindActionMap("Player").Enable();
+        input.enabled = true;
+        
+    }
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        moveAction = moveActionReference.action;
+
+
         moveAction = InputSystem.actions.FindAction("Move");
         print(moveAction);
 
@@ -26,18 +41,21 @@ public class PlayerMovement : MonoBehaviour
         {
             // makes sure moveAction is enabled
             moveAction.Enable();
+            print("Move action enabled.");
         }
 
     }
 
     void FixedUpdate()
     {
+
         // ensures there is no errors if no input is found
         if (moveAction == null) return;
-        
+
         // reads the value of the move action (input)
         Vector2 moveValue = moveAction.ReadValue<Vector2>();
-        
+
+
         if (moveValue != Vector2.zero)
         {
             lastInput = moveValue;
@@ -60,13 +78,22 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-           transform.position += (Vector3)delta;
+            transform.position += (Vector3)delta;
 
-              if (lastInput != Vector2.zero)
-              {
+            if (lastInput != Vector2.zero)
+            {
                 float angle = Mathf.Atan2(lastInput.y, lastInput.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0, 0, angle);
             }
         }
     }
+
+
+    public void OnMove(InputValue value)
+    {
+        var v = value.Get<Vector2>();
+        print("OnMove: " + v);
+    }
+
+    
 }

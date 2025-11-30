@@ -53,6 +53,7 @@ public class ActiveRegion : MonoBehaviour
     }
 
    
+   
 
 
     void OnTriggerEnter2D(Collider2D other)
@@ -68,7 +69,7 @@ public class ActiveRegion : MonoBehaviour
 
                 int moleculeATP = spawnPointsRef.GetMoleculeATPValue(level);
                 int newATP = pointManager.atpScore + moleculeATP;
-
+                pointManager.atpScore = newATP;
 
 
                 //currentMolecule = spawnPointsRef.GetMolecule(spawnPointsRef.getMoleculeName(level + 1));

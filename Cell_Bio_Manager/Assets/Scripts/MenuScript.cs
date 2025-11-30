@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -10,6 +11,7 @@ public class MenuScript : MonoBehaviour
 
     private Button startButton;
     private Button exitButton;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +20,8 @@ public class MenuScript : MonoBehaviour
         startButton.clicked += startGame;
         exitButton = uIDocument.rootVisualElement.Q<Button>("ExitButton");
         exitButton.clicked += exitGame;
+      
+
     }
 
     // Update is called once per frame
@@ -28,8 +32,9 @@ public class MenuScript : MonoBehaviour
 
     void startGame()
     {
-        SceneManager.LoadScene("MainScene");
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainScene"));
+        SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+        
+
     }
 
     void exitGame()

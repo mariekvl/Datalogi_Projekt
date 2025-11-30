@@ -119,7 +119,7 @@ public class SpawnPoints : MonoBehaviour
             Vector3 spawnPosition = GetRandomSpawnPoint();
             Instantiate(moleculePrefab, spawnPosition, Quaternion.identity);
             moleculeCount++;
-            print(moleculeCount);
+            //print(moleculeCount);
         }
     }
 
@@ -133,7 +133,7 @@ public class SpawnPoints : MonoBehaviour
     public void ModifyMoleculeCount(int delta)
     {
         moleculeCount = Mathf.Max(0, moleculeCount + delta);
-        print(moleculeCount);
+        //print(moleculeCount);
     }
 
     public int GetMoleculeATPValue(int level)
