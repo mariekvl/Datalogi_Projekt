@@ -7,5 +7,9 @@ public class PointManager : ScriptableObject
     public int atpScore { get; set; }
     [field: SerializeField]
     public int pyruvateScore { get; set; }
+    [field: SerializeField]
+    public int level { get; set; }
+    [field: SerializeField]
+    public int upgradePrice { get; set; }
 
 }

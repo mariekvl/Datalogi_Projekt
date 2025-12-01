@@ -23,7 +23,7 @@ public class ActiveRegion : MonoBehaviour
     public bool MoleculeCaught = false;
 
 
-    // private int maxLevel = 8;
+    private int maxLevel = 8;
 
     private AudioSource audioSource;
 
@@ -53,7 +53,10 @@ public class ActiveRegion : MonoBehaviour
     }
 
    
-   
+    public void setLevel(int newLevel)
+    {
+        level = newLevel;
+    }
 
 
     void OnTriggerEnter2D(Collider2D other)
@@ -65,6 +68,16 @@ public class ActiveRegion : MonoBehaviour
             {
                 audioSource.Play();
                 Destroy(other.gameObject);
+
+
+                if (level == maxLevel)
+                {
+                    pointManager.pyruvateScore += 1;
+                    pyruvateScore.text = pointManager.pyruvateScore.ToString();
+                    MoleculeCaught = true;
+                    return;
+                }
+
                 spawnPointsRef.SpawnNextMolecule(other.transform.position, 0, level+1);
 
                 int moleculeATP = spawnPointsRef.GetMoleculeATPValue(level);

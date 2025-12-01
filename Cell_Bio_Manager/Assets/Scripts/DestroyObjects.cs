@@ -21,7 +21,7 @@ public class DestroyObjects : MonoBehaviour
         GameObject other = collision.gameObject;
 
         
-        bool isMolecule = other.CompareTag("Molecule") || other.GetComponent<Movement>() != null;
+        bool isMolecule = other.CompareTag("Molecule");
 
         if (isMolecule && spawnPointsRef != null)
         {

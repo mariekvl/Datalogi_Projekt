@@ -1,33 +1,53 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     // The speed at which the player moves
-    public float speed = 5f; 
+    public float speed = 5f;
 
+    public List<Molecule> MoleculeData = new List<Molecule>();
+
+    public PointManager pointManager;
     InputAction moveAction;
     Rigidbody2D rb;
     Vector2 lastInput;
     PlayerInput input;
     public InputActionReference moveActionReference;
 
-    private void Awake()
+    private ActiveRegion activeRegion;
+    private int level = 0;
+    private int startPrice = 100;
+
+
+    private Array enzymeNames = new string[]
     {
-        input = GetComponent<PlayerInput>();
-        input.actions.FindActionMap("Player").Enable();
-        input.enabled = true;
-        
-    }
+        "Hexokinase",
+        "Phosphoglucose Isomerase",
+        "Phosphofructokinase",
+        "Aldolase",
+        "Triosephosphate Isomerase",
+        "Glyceraldehyde 3-phosphate Dehydrogenase",
+        "Phosphoglycerate Kinase",
+        "Phosphoglycerate Mutase",
+        "Enolase",
+        "Pyruvate Kinase"
+    };
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+        activeRegion = GetComponentInChildren<ActiveRegion>();
+        changeColor(level);
+
         moveAction = moveActionReference.action;
 
+        pointManager.level = level;
+        pointManager.upgradePrice = startPrice;
 
         moveAction = InputSystem.actions.FindAction("Move");
         print(moveAction);
@@ -87,6 +107,47 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+
+    private void changeColor(int level)
+    {
+        print("Changing color to " + MoleculeData[level].Color);
+        Color color = MoleculeData[level].Color;
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        sprite.color = color;
+    }
+
+    public void setEnzymeName(int level)
+    {
+        TextMeshPro enzymeLabel = GetComponentInChildren<TextMeshPro>();
+        enzymeLabel.text = (string)enzymeNames.GetValue(level);
+    }
+
+    public void OnPrevious()
+    {
+        print("OnPrevious called");
+        if (level > 0)
+        {
+            level--;
+            activeRegion.setLevel(level);
+            setEnzymeName(level);
+            changeColor(level);
+        }
+    }
+
+    public void OnNext()
+    {
+        print("OnNext called");
+        if (level < pointManager.level)
+        {
+            level++;
+            activeRegion.setLevel(level);
+
+            setEnzymeName(level);
+            changeColor(level);
+        }
+    }
+
 
 
     public void OnMove(InputValue value)

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Molecule
   <Name>k__BackingField: 1,3-bisphosphoglycerate
   <Color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
-  <Level>k__BackingField: 1
+  <Level>k__BackingField: 5
   <ATPValue>k__BackingField: 35

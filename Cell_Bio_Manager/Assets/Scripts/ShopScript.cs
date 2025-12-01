@@ -6,17 +6,26 @@ public class ShopScript : MonoBehaviour
 {
     public UIDocument uIDocument;
     public PointManager pointManager;
+    public int maxLevel = 8;
 
     private Label atpScore;
     private Label pyruvateScore;
 
+
     private Button backButton;
 
+    private Button winButton;
+    private Label winPrice;
+
     private Button buyUpgrade;
-    private Button buyHexokinase;
+
+    private Button buyEnzyme1;
+
+
 
     private Label upgradePrice;
-    private Label hexokinasePrice;
+
+    private Label priceEnzyme1;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,14 +39,19 @@ public class ShopScript : MonoBehaviour
         backButton = uIDocument.rootVisualElement.Q<Button>("BackButton");
         backButton.clicked += CloseShop;
 
+        winButton = uIDocument.rootVisualElement.Q<Button>("BuyWin");
+        winButton.clicked += winTheGame;
+        winPrice = uIDocument.rootVisualElement.Q<Label>("WinPrice");
+
         buyUpgrade = uIDocument.rootVisualElement.Q<Button>("BuyUpgrade");
         buyUpgrade.clicked += BuyUpgrade;
-        buyHexokinase = uIDocument.rootVisualElement.Q<Button>("BuyHexokinase");
-        buyHexokinase.clicked += BuyHexokinase;
+        buyEnzyme1 = uIDocument.rootVisualElement.Q<Button>("BuyEnzyme1");
+        buyEnzyme1.clicked += BuyEnzyme;
 
 
         upgradePrice = uIDocument.rootVisualElement.Q<Label>("UpgradePrice");
-        hexokinasePrice = uIDocument.rootVisualElement.Q<Label>("HexokinasePrice");
+        upgradePrice.text = pointManager.upgradePrice.ToString();
+        priceEnzyme1 = uIDocument.rootVisualElement.Q<Label>("PriceEnzyme1");
     }
 
     
@@ -49,27 +63,38 @@ public class ShopScript : MonoBehaviour
         
     }
 
+    void winTheGame()
+    {
+        if (int.Parse(winPrice.text) <= int.Parse(pyruvateScore.text))
+            Application.Quit();
+    }
+
     void BuyUpgrade()
     {  
+
         if (int.Parse(upgradePrice.text) <= int.Parse(atpScore.text))
         {
             print("Upgrade Purchased");
             int newAtpScore = int.Parse(atpScore.text) - int.Parse(upgradePrice.text);
             atpScore.text = newAtpScore.ToString();
             pointManager.atpScore = newAtpScore;
+
+            pointManager.level += 1;
+            upgradePrice.text = (int.Parse(upgradePrice.text) * 1.5).ToString();
+            pointManager.upgradePrice = int.Parse(upgradePrice.text);
+
+            if (pointManager.level >= maxLevel)
+            {
+                buyUpgrade.SetEnabled(false);
+                upgradePrice.text = "MAX";
+            }
         }
         
     }
 
-    void BuyHexokinase()
+    void BuyEnzyme()
     {
-        if (int.Parse(hexokinasePrice.text) <= int.Parse(atpScore.text))
-        {
-            print("Hexokinase Purchased");
-            int newAtpScore = int.Parse(atpScore.text) - int.Parse(hexokinasePrice.text);
-            atpScore.text = newAtpScore.ToString();
-            pointManager.atpScore = newAtpScore;
-        }
+        
             
     }
 }

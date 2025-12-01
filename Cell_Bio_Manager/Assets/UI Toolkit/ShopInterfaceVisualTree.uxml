@@ -7,10 +7,17 @@
             <ui:Label text="Enzymes" class="subheader" style="-unity-text-align: middle-center;" />
         </ui:VisualElement>
         <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: row; height: 40%;">
-            <ui:ScrollView class="scrollWindow" style="width: 50%; max-width: 50%;" />
             <ui:ScrollView class="scrollWindow" style="width: 50%; max-width: 50%;">
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
-                    <ui:Label text="Player Upgrade" name="NextUpgrade" class="text" style="width: 45%;" />
+                    <ui:Label text="Win The Game" name="Win" class="text" style="width: 45%;" />
+                    <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
+                    <ui:Label text="10" name="WinPrice" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyWin" class="button text" style="-unity-text-align: middle-center; margin-top: 2px; margin-right: 4px; margin-bottom: 2px; margin-left: 4px; border-bottom-width: 0; border-top-width: 0; border-right-width: 0; border-left-width: 0;" />
+                </ui:VisualElement>
+            </ui:ScrollView>
+            <ui:ScrollView class="scrollWindow" style="width: 50%; max-width: 50%;">
+                <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Label text="Next Player Upgrade" name="NextUpgrade" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
                     <ui:Label text="100" name="UpgradePrice" class="text" style="width: 20%;" />
                     <ui:Button text="Buy" name="BuyUpgrade" class="button text" style="-unity-text-align: middle-center; margin-top: 2px; margin-right: 4px; margin-bottom: 2px; margin-left: 4px; border-bottom-width: 0; border-top-width: 0; border-right-width: 0; border-left-width: 0;" />
@@ -18,56 +25,56 @@
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Hexokinase" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
-                    <ui:Label text="150" name="HexokinasePrice" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="BuyHexokinase" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    <ui:Label text="150" name="PriceEnzyme1" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyEnzyme1" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Phosphoglucoisomerase" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
-                    <ui:Label text="150" name="HexokinasePrice" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="BuyHexokinase" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    <ui:Label text="150" name="PriceEnzyme2" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyEnzyme2" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Phosphofructokinase" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
-                    <ui:Label text="150" name="HexokinasePrice" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="BuyHexokinase" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    <ui:Label text="150" name="PriceEnzyme3" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyEnzyme3" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Aldolase" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
-                    <ui:Label text="150" name="HexokinasePrice" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="BuyHexokinase" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    <ui:Label text="150" name="PriceEnzyme4" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyEnzyme4" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="EnzymeBlock" focusable="true" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Glyceraldehyde 3-phosphate dehydrogenase" class="text" style="width: 45%; height: auto; white-space: normal;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
-                    <ui:Label text="150" name="HexokinasePrice" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="BuyHexokinase" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    <ui:Label text="150" name="PriceEnzyme5" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyEnzyme5" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Phosphoglycerate kinase" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
-                    <ui:Label text="150" name="HexokinasePrice" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="BuyHexokinase" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    <ui:Label text="150" name="PriceEnzyme6" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyEnzyme6" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Phosphoglycerate mutase" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
-                    <ui:Label text="150" name="HexokinasePrice" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="BuyHexokinase" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    <ui:Label text="150" name="PriceEnzyme7" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyEnzyme7" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Enolase" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
-                    <ui:Label text="150" name="HexokinasePrice" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="BuyHexokinase" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    <ui:Label text="150" name="PriceEnzyme8" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyEnzyme8" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="EnzymeBlock" style="flex-grow: 1; flex-direction: row;">
                     <ui:Label text="Pyruvate Kinase" class="text" style="width: 45%;" />
                     <ui:VisualElement name="Spacer" style="flex-grow: 1; max-width: 15%;" />
-                    <ui:Label text="150" name="HexokinasePrice" class="text" style="width: 20%;" />
-                    <ui:Button text="Buy" name="BuyHexokinase" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    <ui:Label text="150" name="PriceEnzyme9" class="text" style="width: 20%;" />
+                    <ui:Button text="Buy" name="BuyEnzyme9" class="button text" style="-unity-text-align: middle-center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
                 </ui:VisualElement>
             </ui:ScrollView>
         </ui:VisualElement>

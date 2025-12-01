@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class WorkerMovement : MonoBehaviour
+public class Worker : MonoBehaviour
 {
 
     public float speed = 5f;
@@ -11,7 +11,7 @@ public class WorkerMovement : MonoBehaviour
     private GameObject molecule;
     private Rigidbody2D rb;
     private ActiveRegion activeRegion; // reference to ActiveRegion script
-    private Movement movement; // reference to Movement script
+    
 
     // creates states
     private enum WorkerState
@@ -28,18 +28,14 @@ public class WorkerMovement : MonoBehaviour
     // method for random movement
     void Wander()
     {
-        if (movement != null)
-        {
-            movement.enabled = true;
-        }
+        
     }
 
     // method for moving towards molecule
     void Seek()
     {
         // stops default wander movement
-        if (movement != null)
-            movement.enabled = false;
+        
 
         // gets target from activeRegion
         if (activeRegion != null)
@@ -69,8 +65,7 @@ public class WorkerMovement : MonoBehaviour
     void Transform()
     {
         // stops default wander movement
-        if (movement != null)
-            movement.enabled = false;
+        
         
         // Logic to transform molecule
         if (activeRegion != null)
@@ -93,8 +88,7 @@ public class WorkerMovement : MonoBehaviour
     void CoolDown()
     {
         // stops default wander movement
-        if (movement != null)
-            movement.enabled = false;
+        
 
         // Logic for cooldown period: decrease timer
         cooldownTimer -= Time.deltaTime;
@@ -115,15 +109,13 @@ public class WorkerMovement : MonoBehaviour
 
         // get references to other scripts, if not already assigned
         // Get or add Movement component so Wander can delegate to it
-        movement = GetComponent<Movement>();
+        
         activeRegion = GetComponentInChildren<ActiveRegion>();
 
         
 
         // only enable movement script in Wander state (null check)
-        if (movement != null)
-            movement.enabled = (currentState == WorkerState.Wander);
-
+        
     }
 
     // Update is called once per frame

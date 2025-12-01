@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Molecule
   <Name>k__BackingField: 3-phosphoglycerate
   <Color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
-  <Level>k__BackingField: 0
+  <Level>k__BackingField: 6
   <ATPValue>k__BackingField: 40
