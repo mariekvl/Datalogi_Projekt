@@ -49,7 +49,7 @@ public class InterfaceActions : MonoBehaviour
         
 
         SceneManager.LoadScene("ShopScene",LoadSceneMode.Additive);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("ShopScene"));
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByName("ShopScene"));
         
 
     }
