@@ -8,8 +8,14 @@ public class CameraMovement : MonoBehaviour
     // late update is used because it runs after all update functions (in this case after player movement)
     void LateUpdate()
     {
+        setPlayer();
         if (PlayerEnzyme == null) return;
         transform.position = new Vector3(PlayerEnzyme.position.x, PlayerEnzyme.position.y, transform.position.z);
+    }
+
+    void setPlayer()
+    {
+        PlayerEnzyme = GameObject.FindGameObjectWithTag("Player").transform;
     }
 }
 

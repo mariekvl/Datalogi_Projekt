@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -24,17 +25,18 @@ public class MenuScript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     void startGame()
     {
-        SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+        
+        
         
 
+        SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+
+        
+        
     }
 
     void exitGame()

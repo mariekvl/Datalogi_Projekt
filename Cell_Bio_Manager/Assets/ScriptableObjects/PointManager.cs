@@ -12,4 +12,9 @@ public class PointManager : ScriptableObject
     [field: SerializeField]
     public int upgradePrice { get; set; }
 
+    [field: SerializeField]
+    public int workerLevel { get; set; }
+    [field: SerializeField]
+    public bool spawnNewWorker { get; set; }
+
 }

@@ -46,7 +46,8 @@ public class ActiveRegion : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        uIDocument = GameObject.FindGameObjectWithTag("UI").GetComponent<UIDocument>();
+        spawnPointsRef = GameObject.FindGameObjectWithTag("SpawnPoints").GetComponent<SpawnPoints>();
         atpScore = uIDocument.rootVisualElement.Q<Label>("ATPValue");
         pyruvateScore = uIDocument.rootVisualElement.Q<Label>("PyruvateValue");
         audioSource = GetComponent<AudioSource>();
@@ -58,6 +59,10 @@ public class ActiveRegion : MonoBehaviour
         level = newLevel;
     }
 
+    public int getLevel()
+    {
+        return level;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

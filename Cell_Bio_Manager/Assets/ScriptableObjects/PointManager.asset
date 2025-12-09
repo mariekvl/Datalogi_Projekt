@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd72a12914befb4cad202063c56dd00, type: 3}
   m_Name: PointManager
   m_EditorClassIdentifier: Assembly-CSharp::PointManager
-  <atpScore>k__BackingField: 100
+  <atpScore>k__BackingField: 170
   <pyruvateScore>k__BackingField: 0
+  <level>k__BackingField: 0
+  <upgradePrice>k__BackingField: 100
+  <workerLevel>k__BackingField: 1
+  <spawnNewWorker>k__BackingField: 0

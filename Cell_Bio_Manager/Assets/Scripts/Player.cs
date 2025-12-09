@@ -40,6 +40,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+
+        input = GetComponent<PlayerInput>();
+        input.ActivateInput();
         rb = GetComponent<Rigidbody2D>();
         activeRegion = GetComponentInChildren<ActiveRegion>();
         changeColor(level);
