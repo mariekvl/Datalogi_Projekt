@@ -326,6 +326,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopScript
   uIDocument: {fileID: 1060356221}
   pointManager: {fileID: 11400000, guid: 3e4736432b0bcc242af8681581d49628, type: 2}
+  moleculedata:
+  - {fileID: 11400000, guid: 9468f6a665db0984a939704adcd67cda, type: 2}
+  - {fileID: 11400000, guid: 37aaa0590c165ea459ec38619f2324d6, type: 2}
+  - {fileID: 11400000, guid: ae23ff25b80d7974fb75afd98647b001, type: 2}
+  - {fileID: 11400000, guid: 45ba2f75bf76c9341ba41dd2b41b7d62, type: 2}
+  - {fileID: 11400000, guid: 3d1bcf8325be1ed489cdae4f43e4e837, type: 2}
+  - {fileID: 11400000, guid: 37df92127abb73a4abb5bedb88e0ae3a, type: 2}
+  - {fileID: 11400000, guid: ad2354c460aa32a438f1ca7b8004678f, type: 2}
+  - {fileID: 11400000, guid: a0396faacc6c6ed41bbefe7efce54f3b, type: 2}
+  - {fileID: 11400000, guid: 93d90ea655a17414399ed48924d6b621, type: 2}
+  maxLevel: 8
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

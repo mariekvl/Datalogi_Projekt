@@ -10,6 +10,8 @@ TagManager:
   - Worker
   - SpawnPoints
   - UI
+  - Obstacle
+  - NodeLocations
   layers:
   - Default
   - TransparentFX

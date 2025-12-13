@@ -9,20 +9,21 @@ public class Player : MonoBehaviour
     // The speed at which the player moves
     public float speed = 5f;
 
+    // List of molecule data for different levels
     public List<Molecule> MoleculeData = new List<Molecule>();
 
-    public PointManager pointManager;
-    InputAction moveAction;
+    public PointManager pointManager; // Reference to the PointManager script
+    InputAction moveAction; 
     Rigidbody2D rb;
     Vector2 lastInput;
     PlayerInput input;
     public InputActionReference moveActionReference;
 
     private ActiveRegion activeRegion;
-    private int level = 0;
-    private int startPrice = 100;
+    private int level = 0; // current level of the player
+    private int startPrice = 100; // starting price for upgrades
 
-
+    // Array of enzyme names corresponding to levels - to be displayed on the enzyme label
     private Array enzymeNames = new string[]
     {
         "Hexokinase",
@@ -40,17 +41,20 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+
+        input = GetComponent<PlayerInput>();
+        input.ActivateInput();
         rb = GetComponent<Rigidbody2D>();
         activeRegion = GetComponentInChildren<ActiveRegion>();
         changeColor(level);
 
         moveAction = moveActionReference.action;
 
-        pointManager.level = level;
-        pointManager.upgradePrice = startPrice;
+        pointManager.level = level; // sets the pointManager level to the player's current level
+        pointManager.upgradePrice = startPrice; // sets the starting upgrade price
 
         moveAction = InputSystem.actions.FindAction("Move");
-        print(moveAction);
+        //print(moveAction);
 
         // checks if moveAction is null
         if (moveAction == null)
@@ -61,7 +65,7 @@ public class Player : MonoBehaviour
         {
             // makes sure moveAction is enabled
             moveAction.Enable();
-            print("Move action enabled.");
+            //print("Move action enabled.");
         }
 
     }
@@ -108,7 +112,7 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    // changes the color of the player based on the current level to match the molecule color
     private void changeColor(int level)
     {
         print("Changing color to " + MoleculeData[level].Color);
@@ -117,39 +121,42 @@ public class Player : MonoBehaviour
         sprite.color = color;
     }
 
+    // sets the enzyme name on the label based on the current level
     public void setEnzymeName(int level)
     {
         TextMeshPro enzymeLabel = GetComponentInChildren<TextMeshPro>();
         enzymeLabel.text = (string)enzymeNames.GetValue(level);
     }
 
+    // called when the input system previous button is pressed
     public void OnPrevious()
     {
-        print("OnPrevious called");
+        //print("OnPrevious called");
         if (level > 0)
         {
-            level--;
-            activeRegion.setLevel(level);
-            setEnzymeName(level);
-            changeColor(level);
+            level--; // decrease level by 1
+            activeRegion.setLevel(level); // set the active region level
+            setEnzymeName(level); // update enzyme name
+            changeColor(level); // change player color
         }
     }
 
+    // called when the input system next button is pressed
     public void OnNext()
     {
-        print("OnNext called");
+        //print("OnNext called");
         if (level < pointManager.level)
         {
-            level++;
-            activeRegion.setLevel(level);
+            level++; // increase level by 1
+            activeRegion.setLevel(level); // set the active region level
 
-            setEnzymeName(level);
-            changeColor(level);
+            setEnzymeName(level); // update enzyme name
+            changeColor(level); // change player color
         }
     }
 
 
-
+    // could have this method to read movement input directly
     public void OnMove(InputValue value)
     {
         var v = value.Get<Vector2>();

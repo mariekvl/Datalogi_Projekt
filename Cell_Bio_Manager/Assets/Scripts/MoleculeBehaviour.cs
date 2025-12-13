@@ -16,7 +16,7 @@ public class MoleculeBehaviour : MonoBehaviour
         randomDirection();
     }
 
-    void randomDirection()
+    public void randomDirection()
     {
         
         moveX = Random.Range(-1f, 1f);
