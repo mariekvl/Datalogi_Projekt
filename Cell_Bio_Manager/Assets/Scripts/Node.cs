@@ -5,14 +5,14 @@ using UnityEngine.TextCore.LowLevel;
 
 public class Node : MonoBehaviour
 {
-    public Node parent;
-    public List<Node> connectedNodes = new List<Node>();
+    public Node parent; // Parent node in the pathfinding process
+    public List<Node> connectedNodes = new List<Node>(); // List of nodes connected to this node
 
-    public float hValue;
-    public float gValue;
+    public float hValue; // Heuristic value (estimated cost to reach the goal)
+    public float gValue; // Cost from the start node to this node
 
     //public bool isWalkable = true;
-    public float FValue()
+    public float FValue() // Total cost function combining gValue and hValue
     {
         return hValue + gValue;
     }

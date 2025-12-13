@@ -14,12 +14,7 @@ public class SpawnPlayer : MonoBehaviour
         spawnPlayerAtSpawnPoint();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     void spawnPlayerAtSpawnPoint()
     {
         if (playerPrefab != null)

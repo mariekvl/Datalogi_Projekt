@@ -10,22 +10,22 @@ public class Worker : MonoBehaviour
     public float speed = 5f;
     public float cooldownDuration = 1f; // duration of cooldown period
     private float cooldownTimer = 0f; // timer for cooldown period
-    public float detectionRadius = 10f;
+    public float detectionRadius = 10f; // radius to detect molecules
 
-    public NodeLocations nodeLocations;
-    public Path pathfinding;
-    
+    public NodeLocations nodeLocations; // reference to NodeLocations script
+    public Path pathfinding; // reference to Path script
 
 
-    private List<Node> path;
-    public Node currenNode;
-    private GameObject molecule;
+
+    private List<Node> path;// current path to follow
+    public Node currenNode; // current node the worker is on
+    private GameObject molecule; // current target molecule
 
     private Rigidbody2D rb;
     private ActiveRegion activeRegion; // reference to ActiveRegion script
-    public List<Molecule> MoleculeData;
+    public List<Molecule> MoleculeData; // reference to Molecule data list 
 
-        
+
 
     // create states
     private enum WorkerState
@@ -42,13 +42,17 @@ public class Worker : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+        // get reference to NodeLocations script
         nodeLocations = GameObject.FindGameObjectWithTag("NodeLocations").GetComponent<NodeLocations>();
-        
+
+        // set current node to nearest node at start
         currenNode = nodeLocations.getNearestNode(transform.position);
         activeRegion = GetComponentInChildren<ActiveRegion>();
 
+        // set color to match color of interactable moleule
         changeColor(activeRegion.getLevel());
-        
+
+        // get reference to Path script
         pathfinding = FindAnyObjectByType<Path>();
 
     }
@@ -58,6 +62,7 @@ public class Worker : MonoBehaviour
 
     void Update()
     {
+        // state machine logic
         switch (currentState)
         {
             case WorkerState.Wander:
@@ -71,25 +76,26 @@ public class Worker : MonoBehaviour
                 break;
         }
 
+        // state transition logic
         if (currentState != WorkerState.Wander && molecule == null && cooldownTimer == 0f)
         {
-            print("Returning to Wander state");
+            //print("Returning to Wander state");
             currentState = WorkerState.Wander;
             path = null; // reset path when returning to Wander
         }
         else if (currentState != WorkerState.Seek && molecule != null && cooldownTimer == 0f)
         {
-            print("Switching to Seek state");
+            //print("Switching to Seek state");
             currentState = WorkerState.Seek;
             path = null;
         }
         else if (currentState != WorkerState.CoolDown && cooldownTimer > 0f)
         {
-            print("Switching to CoolDown state");
+            //print("Switching to CoolDown state");
             currentState = WorkerState.CoolDown;
             path = null;
         }
-        createPath();
+        createPath(); // follow path
     }
 
 
@@ -101,34 +107,39 @@ public class Worker : MonoBehaviour
         //molecule = null; // clear current target molecule
         //GetComponent<MoleculeBehaviour>().enabled = true; // enable Movement script for wandering
         //GetComponent<MoleculeBehaviour>().randomDirection();
-        
 
+        // generates new path if none exists
         if ( path == null)
         {
-            print("Generating new wander path");
+            //print("Generating new wander path");
+            // generates path to random node
             path = pathfinding.GeneratePath(currenNode, nodeLocations.getRandomNode());
            
         }
 
 
-
+        // detect nearby colliders within detection radius
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
-        // check for molecules within detection radius
+        // if more than one collider detected (to exclude self)
         if (colliders.Length > 1)
         {
-
-            float closestDistance = Mathf.Infinity;
-            GameObject closestMolecule = null;
+            
+            float closestDistance = Mathf.Infinity; // variable to track closest molecule distance
+            GameObject closestMolecule = null; // variable to track closest molecule object
             foreach (Collider2D obj in colliders)
             {
+                // check if collider is a molecule
                 if (obj.CompareTag("Molecule"))
                 {
+                    // check if molecule matches activeRegion level
                     int level = activeRegion.getLevel();
                     string moleculeName = obj.gameObject.name.Replace("(Clone)", "").Trim();
+                    // if not matching, skip to next collider
                     if (moleculeName != level.ToString())
                         continue;
+                    // calculate distance to molecule
                     float distance = Vector2.Distance(transform.position, obj.transform.position);
-                        
+                    // if this molecule is closer than previous closest, update closest variables
                     if (distance < closestDistance)
                     {
                         closestDistance = distance;
@@ -136,6 +147,7 @@ public class Worker : MonoBehaviour
                     }
                 }
             }
+            // if a closest molecule was found, set as target
             if (closestMolecule != null)
             {
                 molecule = closestMolecule;
@@ -151,17 +163,19 @@ public class Worker : MonoBehaviour
     {
         // stops default wander movement
         //GetComponent<MoleculeBehaviour>().enabled = false;
-        
-       if (path == null) 
-       { 
-            
-            print("Generating new seek path");
+
+        // generates new path if none exists
+        if (path == null) 
+        {
+            //print("Generating new seek path");
+            // generates path to molecule's nearest node
             path = pathfinding.GeneratePath(currenNode, nodeLocations.getNearestNode(molecule.transform.position));
             
-       }
+        }
 
 
 
+        // old logic for pathfinding movement
 
         //if (path == null)
         //{
@@ -221,13 +235,15 @@ public class Worker : MonoBehaviour
         //}
     }
 
-   
+
 
     // method for cooldown period
     void CoolDown()
     {
         // stops default wander movement
         //gameObject.GetComponent<MoleculeBehaviour>().enabled = false;
+        
+        //stop movement
         rb.linearVelocity = Vector2.zero;
         molecule = null; // clear current target molecule
 
@@ -241,35 +257,44 @@ public class Worker : MonoBehaviour
         }
     }
 
+    // change the color of the worker based on molecule color
     private void changeColor(int level)
     {
-        print("Changing color to " + MoleculeData[level].Color);
+        //print("Changing color to " + MoleculeData[level].Color);
         Color color = MoleculeData[level].Color;
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         sprite.color = color;
     }
 
+    // method to follow path
     void createPath()
     {
+        // follow path if it exists
         if (path != null)
         {
-            print("Following path with " + path.Count + " nodes");
-            int x = 0;
+            //print("Following path with " + path.Count + " nodes");
+            int x = 0; // always target first node in path
+            // move towards next node in path
             transform.position = Vector2.MoveTowards(transform.position, path[x].transform.position, speed * Time.deltaTime);
+            // rotate towards next node in path
             float angle = Mathf.Atan2((path[x].transform.position - transform.position).y, (path[x].transform.position - transform.position).x) * Mathf.Rad2Deg;
+            // apply rotation
             transform.rotation = Quaternion.Euler(0, 0, angle);
+            // check if reached next node
             if (Vector2.Distance(transform.position, path[x].transform.position) < 0.1f)
             {
-                currenNode = path[x];
-                path.RemoveAt(x);
+                currenNode = path[x]; // update current node
+                path.RemoveAt(x); // remove reached node from path
             }
+            // check if path is complete
             if (path.Count == 0)
             {
-                print("Path complete");
-                path = null;
+                //print("Path complete");
+                path = null; // reset path
             }
         }
     }
+    // visualize detection radius in editor
     void OnDrawGizmosSelected()
     {
         // Draw detection radius when selected

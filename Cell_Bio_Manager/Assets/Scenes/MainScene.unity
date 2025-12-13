@@ -3301,6 +3301,7 @@ MonoBehaviour:
   uIDocument: {fileID: 1093362891}
   pointManager: {fileID: 11400000, guid: 3e4736432b0bcc242af8681581d49628, type: 2}
   startATP: 100
+  startPyruvate: 0
 --- !u!1 &565021329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,7 +3332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703286f454d895e4abfe1a660fa64994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodeLocations
-  Node: {fileID: 1666971543588830925, guid: 669842eaa114bfa43beda8c736111025, type: 3}
   nodeScript: {fileID: 8464861342638608254, guid: 669842eaa114bfa43beda8c736111025, type: 3}
   xValueMax: 62
   yValueMax: 44
@@ -10812,7 +10812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1969946583
 AudioSource:
   m_ObjectHideFlags: 0

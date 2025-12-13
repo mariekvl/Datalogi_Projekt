@@ -12,8 +12,10 @@ public class SpawnWorker : MonoBehaviour
 
     private void Update()
     {
+        // Check if a new worker needs to be spawned
         if (pointManager.spawnNewWorker)
         {
+            // Reset the flag and spawn the worker
             pointManager.spawnNewWorker = false;
             spawn(pointManager.workerLevel);
         }
@@ -25,13 +27,9 @@ public class SpawnWorker : MonoBehaviour
 
     public void spawn(int level)
     {
-
-        if (workerPrefab == null)
-
-            return;
-        
-        
+        // Get a random node position from NodeLocations
         Vector2 position = nodeLocations.getRandomNode().transform.position;
+        // Instantiate the worker prefab at the selected position
         GameObject newWorker = Instantiate(workerPrefab, position, Quaternion.identity);
         newWorker.GetComponentInChildren<ActiveRegion>().setLevel(level);
         

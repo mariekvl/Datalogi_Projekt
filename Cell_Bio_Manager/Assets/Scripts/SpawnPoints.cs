@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class SpawnPoints : MonoBehaviour
 {
-    public List<Molecule> MoleculeData = new List<Molecule>();
+    public List<Molecule> MoleculeData = new List<Molecule>();// Scriptable objects for molecule data
 
-    public List<GameObject> spawnPoints = new List<GameObject>();
+    public List<GameObject> spawnPoints = new List<GameObject>();// list of spawn point game objects
 
     //public List<GameObject> molecules = new List<GameObject>();
 
-    public GameObject basicMolecule;
+
+    public GameObject basicMolecule;// prefab to instantiate
     private GameObject spawnedMolecule;
 
     public int currentLevel = 0;
@@ -32,32 +33,37 @@ public class SpawnPoints : MonoBehaviour
     //    "Phosphoenolpyruvate"
     //};
 
-    public int moleculeCount = 0;
+    public int moleculeCount = 0;// current number of molecules in the scene
 
-    public int MaxMoleculeCount = 30;
+    public int MaxMoleculeCount = 30;// maximum number of molecules allowed in the scene
 
     //public int MinMoleculeCount = 5;
 
-    private int spawnAmount = 5;
-    
+    private int spawnAmount = 5;// number of molecules to spawn at a time
 
+    // Timer variables for spawning molecules over time
     public float waitTimer = 5.0f;
     private float currentTime = 0.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Initial spawn of molecules
         SpawnMolecules(spawnAmount);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Update the timer
         currentTime += Time.deltaTime;
+        // Check if it's time to spawn more molecules
         if (currentTime >= waitTimer && moleculeCount < MaxMoleculeCount)
         {
+            // Randomize spawn amount between 3 and 7
             spawnAmount = UnityEngine.Random.Range(3, 8);
             SpawnMolecules(spawnAmount);
+            // Reset the timer
             currentTime = 0.0f;
         }
 
@@ -67,6 +73,7 @@ public class SpawnPoints : MonoBehaviour
 
     public Vector3 GetRandomSpawnPoint()
     {
+        // Select a random spawn point from the list
         int randomIndex = UnityEngine.Random.Range(0, spawnPoints.Count);
         return spawnPoints[randomIndex].transform.position;
     }
@@ -80,14 +87,15 @@ public class SpawnPoints : MonoBehaviour
 
     public GameObject GetMolecule(int level)
     {
+        // Validate level
         if (level < 0 || level >= MoleculeData.Count)
         {
             Debug.LogError("Invalid molecule level: " + level);
             return null;
         }
 
+        // Find the molecule data for the specified level
         Molecule moleculeData = ScriptableObject.CreateInstance<Molecule>();
-
         for (int i = 0; i<MoleculeData.Count;i++)
         {
             if (MoleculeData[i].Level == level)
@@ -96,12 +104,14 @@ public class SpawnPoints : MonoBehaviour
                 break;
             }
         }
+        // Instantiate the molecule prefab and set its properties
         spawnedMolecule = Instantiate(basicMolecule);
+        // If level is 0, enable IgnoreCellWall component
         if (level == 0)
         {
             spawnedMolecule.GetComponent<IgnoreCellWall>().enabled = true;
         }
-
+        // Set molecule properties based on the ScriptableObject data
         spawnedMolecule.GetComponent<SpriteRenderer>().color = moleculeData.Color;
         spawnedMolecule.name = moleculeData.Level.ToString();
         
@@ -113,6 +123,7 @@ public class SpawnPoints : MonoBehaviour
 
     public void SpawnMolecules(int count)
     {
+        // Spawn the specified number of molecules at random spawn points
         GameObject moleculePrefab = GetMolecule(currentLevel);
         for (int i = 0; i < count; i++)
         {
@@ -123,8 +134,10 @@ public class SpawnPoints : MonoBehaviour
         }
     }
 
+    // method used when active region "changes" molecule
     public void SpawnNextMolecule(Vector3 spawnPosition, int rotation, int playerLevel)
     {
+        // Spawn the next level molecule at the specified position with rotation
         GameObject moleculePrefab = GetMolecule(playerLevel);
         Instantiate(moleculePrefab, spawnPosition, Quaternion.Euler(0, 0, rotation));
     }
@@ -138,6 +151,7 @@ public class SpawnPoints : MonoBehaviour
 
     public int GetMoleculeATPValue(int level)
     {
+        // Find and return the ATP value for the specified molecule level
         for (int i = 0; i < MoleculeData.Count; i++)
         {
             if (MoleculeData[i].Level == level)

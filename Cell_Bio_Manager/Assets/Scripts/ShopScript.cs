@@ -8,8 +8,9 @@ public class ShopScript : MonoBehaviour
     public UIDocument uIDocument;
     public PointManager pointManager;
     public List<Molecule> moleculedata;
-    public int maxLevel = 8;
+    public int maxLevel = 8; // Maximum upgrade level
 
+    // UI Elements
     private Label atpScore;
     private Label pyruvateScore;
 
@@ -45,9 +46,10 @@ public class ShopScript : MonoBehaviour
     private Label priceEnzyme9;
     
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
+        // Initialize UI Elements
         atpScore = uIDocument.rootVisualElement.Q<Label>("ATPValue");
         atpScore.text = pointManager.atpScore.ToString("D3");
         pyruvateScore = uIDocument.rootVisualElement.Q<Label>("PyruvateValue");
@@ -109,11 +111,13 @@ public class ShopScript : MonoBehaviour
 
     int setPrice(int index)
     {
+        // Set price as 10 times the ATP value of the molecule
         return moleculedata[index].ATPValue * 10;
     }
 
    void CloseShop()
    {
+        // Return to Main Scene
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainScene"));
         SceneManager.UnloadSceneAsync("ShopScene");
         
@@ -121,24 +125,27 @@ public class ShopScript : MonoBehaviour
 
     void winTheGame()
     {
+        // Check if player has enough Pyruvate to win
         if (int.Parse(winPrice.text) <= int.Parse(pyruvateScore.text))
-            Application.Quit();
+            Application.Quit(); // Close the application
     }
 
     void BuyUpgrade()
-    {  
-
+    {
+        // Check if player has enough ATP to buy upgrade
         if (int.Parse(upgradePrice.text) <= int.Parse(atpScore.text))
         {
-            print("Upgrade Purchased");
+            //print("Upgrade Purchased");
+            // Deduct ATP and increase level
             int newAtpScore = int.Parse(atpScore.text) - int.Parse(upgradePrice.text);
             atpScore.text = newAtpScore.ToString();
             pointManager.atpScore = newAtpScore;
-
             pointManager.level += 1;
+            // Increase upgrade price by 50%
             upgradePrice.text = (int.Parse(upgradePrice.text) * 1.5).ToString();
+            // Update PointManager
             pointManager.upgradePrice = int.Parse(upgradePrice.text);
-
+            // Disable button if max level reached
             if (pointManager.level >= maxLevel)
             {
                 buyUpgrade.SetEnabled(false);
@@ -148,12 +155,16 @@ public class ShopScript : MonoBehaviour
         
     }
 
+    // Buy enzyme worker of specified level
     void BuyEnzyme(int level, Label price)
     {
+        // Check if player has enough ATP to buy enzyme
         if (int.Parse(price.text) <= int.Parse(atpScore.text))
         {
+            // update PointManager to indicate that a new worker should be spawned
             pointManager.workerLevel = level;
             pointManager.spawnNewWorker = true;
+            // Deduct ATP
             int newAtpScore = int.Parse(atpScore.text) - int.Parse(price.text);
             atpScore.text = newAtpScore.ToString();
             pointManager.atpScore = newAtpScore;

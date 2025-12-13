@@ -7,12 +7,13 @@ using UnityEngine.UIElements;
 public class InterfaceActions : MonoBehaviour
 {
     
-    public UIDocument uIDocument;
+    public UIDocument uIDocument; // Reference to the UIDocument component
     public PointManager pointManager;
     private Button shopButton;
     private Label atpScore;
     private Label pyruvateScore;
     public int startATP = 100;
+    public int startPyruvate = 0;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,8 +24,10 @@ public class InterfaceActions : MonoBehaviour
 
         atpScore = uIDocument.rootVisualElement.Q<Label>("ATPValue");
         pointManager.atpScore = startATP;
-        atpScore.text = pointManager.atpScore.ToString("D3");
+        atpScore.text = pointManager.atpScore.ToString("D3"); // Display ATP score with leading zeros
+
         pyruvateScore = uIDocument.rootVisualElement.Q<Label>("PyruvateValue");
+        pointManager.pyruvateScore = startPyruvate;
         pyruvateScore.text = pointManager.pyruvateScore.ToString("D3");
 
         
