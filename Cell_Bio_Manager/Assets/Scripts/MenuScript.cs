@@ -20,7 +20,7 @@ public class MenuScript : MonoBehaviour
         startButton = uIDocument.rootVisualElement.Q<Button>("StartButton");
         startButton.clicked += startGame;
         exitButton = uIDocument.rootVisualElement.Q<Button>("ExitButton");
-        exitButton.clicked += Update;
+        exitButton.clicked += exitGame;
       
 
     }
@@ -39,9 +39,9 @@ public class MenuScript : MonoBehaviour
         
     }
 
-    //void exitGame()
-    //{
-      //  print("Exiting game...");
-        //Application.Quit();
-    //}
+    void exitGame()
+    {
+        print("Exiting game...");
+        Application.Quit();
+    }
 }
