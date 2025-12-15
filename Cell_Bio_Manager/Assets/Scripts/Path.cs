@@ -160,7 +160,7 @@ public class Path : MonoBehaviour
                     connectedNode.parent = currentNode;
                     connectedNode.gValue = heldGValue;
                     //recalculate h value
-                    currentNode.hValue = Vector2.Distance(connectedNode.transform.position, end.transform.position);
+                    connectedNode.hValue = Vector2.Distance(connectedNode.transform.position, end.transform.position);
                     //add connected node to openSet if not already present
                     if (!openSet.Contains(connectedNode))
                     {
