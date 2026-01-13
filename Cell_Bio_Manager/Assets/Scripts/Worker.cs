@@ -15,7 +15,8 @@ public class Worker : MonoBehaviour
     public NodeLocations nodeLocations; // reference to NodeLocations script
     public Path pathfinding; // reference to Path script
 
-
+    //added after hand-in
+    public int workerIndex; // index to use with node h and g values in pathfinding
 
     private List<Node> path;// current path to follow
     public Node currenNode; // current node the worker is on
@@ -55,6 +56,7 @@ public class Worker : MonoBehaviour
         // get reference to Path script
         pathfinding = FindAnyObjectByType<Path>();
 
+        addIndexToNodes(); // added after hand-in
     }
 
 
@@ -99,6 +101,16 @@ public class Worker : MonoBehaviour
     }
 
 
+    // added after hand-in to initialize g and h values for each node for this worker
+    private void addIndexToNodes()
+    {
+        for (int i = 0; i < nodeLocations.NodeList.Count; i++)
+        {
+            nodeLocations.NodeList[i].gValues.Add(float.MaxValue); // initialize g value for this worker
+            nodeLocations.NodeList[i].hValues.Add(0f); // initialize h value for this worker
+        }
+    }
+
 
 
     // method for random movement
@@ -113,8 +125,8 @@ public class Worker : MonoBehaviour
         {
             //print("Generating new wander path");
             // generates path to random node
-            path = pathfinding.GeneratePath(currenNode, nodeLocations.getRandomNode());
-           
+            path = pathfinding.GeneratePath(currenNode, nodeLocations.getRandomNode(),workerIndex); //added workerIndex after hand-in
+
         }
 
 
@@ -169,8 +181,8 @@ public class Worker : MonoBehaviour
         {
             //print("Generating new seek path");
             // generates path to molecule's nearest node
-            path = pathfinding.GeneratePath(currenNode, nodeLocations.getNearestNode(molecule.transform.position));
-            
+            path = pathfinding.GeneratePath(currenNode, nodeLocations.getNearestNode(molecule.transform.position), workerIndex); //added workerIndex after hand-in
+
         }
 
 

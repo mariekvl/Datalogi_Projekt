@@ -12,7 +12,7 @@ public class InterfaceActions : MonoBehaviour
     private Button shopButton;
     private Label atpScore;
     private Label pyruvateScore;
-    public int startATP = 100;
+    public int startATP = 200; //changed after hand-in from 100 to 200 for testing
     public int startPyruvate = 0;
 
 

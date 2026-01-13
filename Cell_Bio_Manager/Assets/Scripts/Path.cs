@@ -18,75 +18,75 @@ public class Path : MonoBehaviour
 
 
     //non-functional pathfinding method - it crashes the game when used
-    public List<Node> getPath(Node start, Node goal)
-    {
-        List<Node> openList = new List<Node>();
-        List<Node> closedList = new List<Node>();
-        List<Node> pathList = new List<Node>();
+    //public List<Node> getPath(Node start, Node goal)
+    //{
+    //    List<Node> openList = new List<Node>();
+    //    List<Node> closedList = new List<Node>();
+    //    List<Node> pathList = new List<Node>();
 
-        Node currentNode = start;
+    //    Node currentNode = start;
 
-        foreach (Node node in nodeLocations.NodesInScene())
-        {
-            node.gValue = float.MaxValue;
-            node.hValue = 0;
-            node.parent = null;
-        }
+    //    foreach (Node node in nodeLocations.NodesInScene())
+    //    {
+    //        node.gValue = float.MaxValue;
+    //        node.hValue = 0;
+    //        node.parent = null;
+    //    }
 
-        openList.Add(currentNode);
-        currentNode.gValue = 0;
-        currentNode.hValue = Vector2.Distance(currentNode.transform.position, goal.transform.position);
+    //    openList.Add(currentNode);
+    //    currentNode.gValue = 0;
+    //    currentNode.hValue = Vector2.Distance(currentNode.transform.position, goal.transform.position);
 
-        if (currentNode == goal)
-        {
-            Node pathNode = goal;
-            while (pathNode != null)
-            {
-                pathList.Add(pathNode);
-                pathNode = pathNode.parent;
-            }
-            pathList.Reverse();
-            return pathList;
-        }
-
-
-        while (currentNode != goal)
-        {
-            for (int i = 0; i < currentNode.connectedNodes.Count; i++)
-            {
-                //if (!currentNode.connectedNodes[i].isWalkable || closedList.Contains(currentNode.connectedNodes[i]))
-                //{
-                //    continue;
-                //}
-                Node connectedNode = currentNode.connectedNodes[i];
-                connectedNode.gValue = currentNode.gValue + Vector2.Distance(currentNode.transform.position, connectedNode.transform.position);
-                connectedNode.hValue = Vector2.Distance(connectedNode.transform.position, goal.transform.position);
-                connectedNode.parent = currentNode;
-            }
+    //    if (currentNode == goal)
+    //    {
+    //        Node pathNode = goal;
+    //        while (pathNode != null)
+    //        {
+    //            pathList.Add(pathNode);
+    //            pathNode = pathNode.parent;
+    //        }
+    //        pathList.Reverse();
+    //        return pathList;
+    //    }
 
 
-            openList.AddRange(currentNode.connectedNodes);
+    //    while (currentNode != goal)
+    //    {
+    //        for (int i = 0; i < currentNode.connectedNodes.Count; i++)
+    //        {
+    //            //if (!currentNode.connectedNodes[i].isWalkable || closedList.Contains(currentNode.connectedNodes[i]))
+    //            //{
+    //            //    continue;
+    //            //}
+    //            Node connectedNode = currentNode.connectedNodes[i];
+    //            connectedNode.gValue = currentNode.gValue + Vector2.Distance(currentNode.transform.position, connectedNode.transform.position);
+    //            connectedNode.hValue = Vector2.Distance(connectedNode.transform.position, goal.transform.position);
+    //            connectedNode.parent = currentNode;
+    //        }
 
-            openList.Sort((nodeA, nodeB) => nodeA.FValue().CompareTo(nodeB.FValue()));
-            currentNode = openList[0];
-            openList.RemoveAt(0);
-            closedList.Add(currentNode);
-        }
 
+    //        openList.AddRange(currentNode.connectedNodes);
 
-        
-
-        
-
-        return pathList;
-    }
+    //        openList.Sort((nodeA, nodeB) => nodeA.FValue().CompareTo(nodeB.FValue()));
+    //        currentNode = openList[0];
+    //        openList.RemoveAt(0);
+    //        closedList.Add(currentNode);
+    //    }
 
 
 
 
 
 
-    public List<Node> GeneratePath(Node start, Node end)
+    //    return pathList;
+    //}
+
+
+
+
+
+    // changed after hand-in to support multiple workers by adding an index parameter
+    public List<Node> GeneratePath(Node start, Node end, int index)
     {
         List<Node> openSet = new List<Node>(); //nodes to be evaluated
         List<Node> closedSet = new List<Node>(); //nodes already evaluated - to prevent re-evaluation
@@ -94,14 +94,14 @@ public class Path : MonoBehaviour
         //reset all nodes' g and h values and parent
         foreach (Node node in nodeLocations.NodesInScene())
         {
-            node.gValue = float.MaxValue; 
-            node.hValue = 0;
+            node.gValues[index] = float.MaxValue; 
+            node.hValues[index] = 0;
             node.parent = null;
         }
 
         //initialize start node
-        start.gValue = 0;
-        start.hValue = Vector2.Distance(start.transform.position, end.transform.position);
+        start.gValues[index] = 0;
+        start.hValues[index] = Vector2.Distance(start.transform.position, end.transform.position);
         openSet.Add(start);
         //print("Generating path from " + start.transform.position + " to " + end.transform.position);
 
@@ -114,7 +114,7 @@ public class Path : MonoBehaviour
             //find node in openSet with lowest F value
             for (int i = 1; i < openSet.Count; i++)
             {
-                if (openSet[i].FValue() < openSet[lowestF].FValue())
+                if (openSet[i].FValue(index) < openSet[lowestF].FValue(index))
                 {
                     lowestF = i;
                 }
@@ -152,15 +152,15 @@ public class Path : MonoBehaviour
                     continue;
                 }
                 //calculate tentative g value
-                float heldGValue = currentNode.gValue + Vector2.Distance(currentNode.transform.position, connectedNode.transform.position);
+                float heldGValue = currentNode.gValues[index] + Vector2.Distance(currentNode.transform.position, connectedNode.transform.position);
 
                 //if new path to connected node is shorter, update its g value and parent
-                if (heldGValue < connectedNode.gValue)
+                if (heldGValue < connectedNode.gValues[index])
                 {
                     connectedNode.parent = currentNode;
-                    connectedNode.gValue = heldGValue;
+                    connectedNode.gValues[index] = heldGValue;
                     //recalculate h value
-                    connectedNode.hValue = Vector2.Distance(connectedNode.transform.position, end.transform.position);
+                    connectedNode.hValues[index] = Vector2.Distance(connectedNode.transform.position, end.transform.position);
                     //add connected node to openSet if not already present
                     if (!openSet.Contains(connectedNode))
                     {

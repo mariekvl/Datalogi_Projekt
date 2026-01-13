@@ -7,8 +7,13 @@ public class SpawnWorker : MonoBehaviour
     public GameObject workerPrefab;
     public NodeLocations nodeLocations;
     public PointManager pointManager;
-    
 
+    
+    private void Start()
+    {
+        //added after hand-in
+        pointManager.numberOfWorkers = 0; // Initialize the number of workers to zero at the start
+    }
 
     private void Update()
     {
@@ -32,8 +37,11 @@ public class SpawnWorker : MonoBehaviour
         // Instantiate the worker prefab at the selected position
         GameObject newWorker = Instantiate(workerPrefab, position, Quaternion.identity);
         newWorker.GetComponentInChildren<ActiveRegion>().setLevel(level);
-        
 
+        //added after hand-in
+        newWorker.GetComponent<Worker>().workerIndex = pointManager.numberOfWorkers; // Assign a unique index to the new worker
+        print("Spawned worker with index: " + newWorker.GetComponent<Worker>().workerIndex);
+        pointManager.numberOfWorkers++;// Increment the number of workers in PointManager
 
     }
    

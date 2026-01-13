@@ -17,4 +17,8 @@ public class PointManager : ScriptableObject
     [field: SerializeField]
     public bool spawnNewWorker { get; set; }
 
+    //added after hand-in
+    [field: SerializeField]
+    public int numberOfWorkers { get; set; } = 0;
+
 }

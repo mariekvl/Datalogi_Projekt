@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     private ActiveRegion activeRegion;
     private int level = 0; // current level of the player
-    private int startPrice = 100; // starting price for upgrades
+    private int startPrice = 100; // starting price for upgrades 
 
     // Array of enzyme names corresponding to levels - to be displayed on the enzyme label
     private Array enzymeNames = new string[]

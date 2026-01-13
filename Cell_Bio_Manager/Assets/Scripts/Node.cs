@@ -8,16 +8,25 @@ public class Node : MonoBehaviour
     public Node parent; // Parent node in the pathfinding process
     public List<Node> connectedNodes = new List<Node>(); // List of nodes connected to this node
 
-    public float hValue; // Heuristic value (estimated cost to reach the goal)
-    public float gValue; // Cost from the start node to this node
+    //changed to lists after hand-in
+    public List<float> hValues = new List<float>(); // List of heuristic values to connected nodes
+    public List<float> gValues = new List<float>(); // List of cost values to connected nodes
+
+    //public float hValue; // Heuristic value (estimated cost to reach the goal)
+    //public float gValue; // Cost from the start node to this node
 
     //public bool isWalkable = true;
-    public float FValue() // Total cost function combining gValue and hValue
+    //public float FValue() // Total cost function combining gValue and hValue
+    //{
+    //    return hValue + gValue;
+    //}
+
+    //added after hand-in
+    public float FValue(int index) // Total cost function combining gValue and hValue
     {
-        return hValue + gValue;
+        return hValues[index] + gValues[index];
     }
 
-    
 
     //private void OnDrawGizmos()
     //{
